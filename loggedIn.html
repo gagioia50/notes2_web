@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notes2Web</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  
+  <body> 
+    <div style="text-align:center;">
+      <h1>Elenco delle note di Notes2</h1>
+      <button type="button" class="btn btn-primary btn-lg add-note" data-toggle="modal" data-target="#myModal">Add Note</button>
+    </div>
+	
+    <!-- myModal -->
+    <div class="container">
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <h5 id="header-title"></h5>              
+            </div>
+            
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="input-title" class="col-form-label">Titolo</label>
+                  <input id="input-title" type="input" class="form-control"></input>
+                </div>
+                <div class="form-group">
+                  <label for="textarea-body" class="col-form-label">Corpo della Nota</label>
+                  <textarea id="textarea-body" class="form-control" rows = '8'></textarea>
+                </div>
+              </form>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary save-changes" data-dismiss="modal">Save Changes</button>
+              <button type="button" class="btn btn-primary save-note" data-dismiss="modal">Save Note</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- myDelete -->
+    <div class="container">
+      <div class="modal fade" id="myDelete" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+
+          <div class="modal-content">
+            
+            <div class="modal-body">
+              <p id="para-delete"></p>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary yes-delete" data-dismiss="modal">YES</button>
+              <button type="button" class="btn btn-primary no-delete" data-dismiss="modal">NO</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- container for list notes members -->
+    <div class="container col-lg-4" id="list_div">
+      
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase-firestore.js"></script>
+	
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDEfAryhJPUr2hnLDeXBnzMx8iP0sPv42Y",
+        authDomain: "notes2gio.firebaseapp.com",
+        databaseURL: "https://notes2gio.firebaseio.com",
+        projectId: "notes2gio",
+        storageBucket: "notes2gio.appspot.com",
+        messagingSenderId: "879760617396"
+      };
+      firebase.initializeApp(config);
+	</script>
+
+    <script src="notes2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+
+  </body>
+</html>

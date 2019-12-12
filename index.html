@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notes2Web</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+ 
+    <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase.js"></script>
+	
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDEfAryhJPUr2hnLDeXBnzMx8iP0sPv42Y",
+        authDomain: "notes2gio.firebaseapp.com",
+        databaseURL: "https://notes2gio.firebaseio.com",
+        projectId: "notes2gio",
+        storageBucket: "notes2gio.appspot.com",
+        messagingSenderId: "879760617396"
+      };
+      firebase.initializeApp(config);
+	</script>
+	
+	<script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
+	
+	<script>
+		
+		var uiConfig = {
+			signInSuccessUrl: 'loggedIn.html',
+			signInOptions: [
+				// Leave the lines as is for the providers you want to offer your users.
+				firebase.auth.EmailAuthProvider.PROVIDER_ID
+			]
+		};
+		
+		var ui = new firebaseui.auth.AuthUI(firebase.auth());
+		ui.start('#firebaseui-auth-container', uiConfig);
+		
+    </script>
+	<body> 
+		
+		<div id="firebaseui-auth-container"></div>
+   
+  </body>
+</html>
